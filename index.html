@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRA System Architecture (True Horizontal for Presentation)</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .flow-line {
+            border-top: 2px dashed #cbd5e1;
+        }
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+        .icon-box img {
+            width: 40px;
+            height: 40px;
+        }
+        .lora-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4338ca;
+            background-color: #e0e7ff;
+            padding: 2px 8px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        .arrow {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            line-height: 1;
+        }
+        .composite-icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Space between icons */
+        }
+        .step-card {
+            width: 400px; /* Fixed width for each step card */
+            height: 100%;
+        }
+        .ai-feature-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 6px 0;
+            font-size: 0.9rem;
+        }
+        .ai-feature-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="p-8">
+    <!-- Use an inline-flex container to allow it to grow as wide as needed -->
+    <div class="inline-flex bg-white p-8 rounded-2xl shadow-xl border border-slate-200 flex-col">
+        <!-- Main header for the diagram -->
+        <header class="text-center mb-10 w-full">
+            <h1 class="text-4xl font-bold text-slate-800 tracking-tight">VIRA System Architecture</h1>
+            <p class="mt-2 text-lg text-slate-600">An AI-Enhanced, Offline-First Emergency Response Ecosystem</p>
+        </header>
+
+        <!-- Core System Section -->
+        <div class="mb-12 p-6 bg-slate-50 rounded-xl border border-slate-200">
+            <h2 class="text-xl font-bold text-center text-slate-700 mb-4">Core System & Trigger Mechanism</h2>
+            <div class="flex items-center justify-center space-x-8">
+                <!-- Wearable Device -->
+                <div class="flex items-center space-x-3">
+                    <img class="w-10 h-10" src="https://api.iconify.design/material-symbols/watch-outline.svg?color=%234f46e5" alt="Wearable Icon">
+                    <div>
+                        <h3 class="font-semibold text-slate-800">VIRA Wearable</h3>
+                        <p class="text-sm text-slate-500">ESP32 + LoRa (TX)</p>
+                    </div>
+                </div>
+                <!-- Arrow -->
+                <div class="text-3xl text-slate-300">→</div>
+                <!-- Data Packet -->
+                <div class="flex items-center space-x-3">
+                    <img class="w-10 h-10" src="https://api.iconify.design/mdi/file-document-outline.svg?color=%234b5563" alt="Data Packet Icon">
+                    <div>
+                        <h3 class="font-semibold text-slate-800">SOS Data Packet</h3>
+                        <p class="text-sm text-slate-500">Request Type, ID, Timestamp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Scenarios Section -->
+        <div class="flex flex-row items-stretch justify-center gap-4">
+            
+            <!-- Step 1 Card -->
+            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+                <h3 class="text-lg font-bold text-center text-emerald-700 mb-6">Scenario 1: Nearby</h3>
+                <div class="flex flex-col items-center space-y-3 flex-grow">
+                     <div class="icon-box bg-indigo-100"><img src="https://api.iconify.design/material-symbols/watch-outline.svg?color=%234f46e5" alt="Wearable Icon"></div>
+                     <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
+                     <div class="icon-box bg-blue-100 composite-icon-box p-2">
+                        <img src="https://api.iconify.design/mdi/chip.svg?color=%232563eb" class="w-8 h-8" alt="ESP32 Icon">
+                        <span class="text-2xl text-blue-400">+</span>
+                        <img src="https://api.iconify.design/mdi/radio-tower.svg?color=%232563eb" class="w-8 h-8" alt="LoRa Icon">
+                    </div>
+                     <p class="text-sm font-semibold text-center text-slate-700 mt-1">Base Station Receives & ACKs</p>
+                    <div class="w-full my-4 flow-line"></div>
+                    <p class="arrow">↓</p>
+                    <div class="flex items-center justify-center space-x-4">
+                        <img src="https://api.iconify.design/logos/firebase.svg" alt="Firebase Logo" class="h-10">
+                        <div class="text-2xl text-slate-300">→</div>
+                        <img src="https://api.iconify.design/logos/flutter.svg" alt="Flutter Logo" class="h-10">
+                    </div>
+                    <p class="text-sm font-semibold text-center text-slate-700 mt-2">Syncs to Cloud & App</p>
+                </div>
+            </div>
+            
+            <div class="text-4xl text-slate-300 font-light flex items-center justify-center mx-4">→</div>
+
+            <!-- Step 2 Card -->
+             <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+                <h3 class="text-lg font-bold text-center text-sky-700 mb-6">Scenario 2: Far Away</h3>
+                <div class="flex flex-col items-center space-y-3 flex-grow">
+                     <div class="icon-box bg-indigo-100"><img src="https://api.iconify.design/material-symbols/watch-outline.svg?color=%234f46e5" alt="Wearable Icon"></div>
+                     <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
+                     <div class="icon-box bg-emerald-100"><img src="https://api.iconify.design/mdi/signal-variant.svg?color=%23059669" alt="Relay Node Icon"></div>
+                     <p class="text-sm font-semibold text-center text-slate-700 mt-1">Relay Node Forwards</p>
+                     <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
+                     <div class="icon-box bg-blue-100 composite-icon-box p-2">
+                        <img src="https://api.iconify.design/mdi/chip.svg?color=%232563eb" class="w-8 h-8" alt="ESP32 Icon">
+                        <span class="text-2xl text-blue-400">+</span>
+                        <img src="https://api.iconify.design/mdi/radio-tower.svg?color=%232563eb" class="w-8 h-8" alt="LoRa Icon">
+                    </div>
+                     <p class="text-sm font-semibold text-center text-slate-700 mt-1">Base Station Receives</p>
+                     <p class="text-sm font-semibold text-center text-slate-500 italic mt-auto pt-4">Subsequent flow follows Scenario 1 or 3</p>
+                </div>
+            </div>
+
+            <div class="text-4xl text-slate-300 font-light flex items-center justify-center mx-4">→</div>
+
+            <!-- Step 3 Card -->
+            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+                <h3 class="text-lg font-bold text-center text-orange-700 mb-6">Scenario 3: No Connectivity</h3>
+                <div class="flex flex-col items-center space-y-3 flex-grow">
+                    <div class="icon-box bg-blue-100 composite-icon-box p-2">
+                        <img src="https://api.iconify.design/mdi/chip.svg?color=%232563eb" class="w-8 h-8" alt="ESP32 Icon">
+                        <span class="text-2xl text-blue-400">+</span>
+                        <img src="https://api.iconify.design/mdi/radio-tower.svg?color=%232563eb" class="w-8 h-8" alt="LoRa Icon">
+                    </div>
+                    <p class="text-sm font-semibold text-center text-slate-700 mt-1">Base Station Receives Alert</p>
+                    <p class="arrow">↓</p>
+                    <div class="icon-box bg-sky-100"><img src="https://api.iconify.design/mdi/database-off-outline.svg?color=%230284c7" alt="Offline Database Icon"></div>
+                    <p class="text-sm font-semibold text-center text-slate-700 mt-1">Stores Alert Locally</p>
+                    <div class="w-full my-4 flow-line"></div>
+                    <p class="arrow">↓</p>
+                    <div class="flex items-center space-x-4">
+                       <div class="icon-box bg-slate-100 border-2 border-slate-300"><img src="https://api.iconify.design/material-symbols/display-settings-outline.svg?color=%2364748b" alt="OLED Icon"></div>
+                       <div class="text-2xl text-slate-300">/</div>
+                       <div class="icon-box bg-slate-100 border-2 border-slate-300"><img src="https://api.iconify.design/mdi/bluetooth.svg?color=%2364748b" alt="Bluetooth Icon"></div>
+                    </div>
+                    <p class="text-sm font-semibold text-center text-slate-700 mt-2">Volunteer Accesses Locally</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
