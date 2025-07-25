@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRA System Architecture (True Horizontal for Presentation)</title>
+    <title>VIRA System Architecture (Final Horizontal for Presentation)</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts for typography -->
@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f8fafc; /* A light, clean background */
         }
         .flow-line {
             border-top: 2px dashed #cbd5e1;
@@ -49,22 +49,9 @@
             justify-content: center;
             gap: 8px; /* Space between icons */
         }
-        .step-card {
-            width: 400px; /* Fixed width for each step card */
+        .scenario-card {
+            width: 380px; /* A bit more width for the new content */
             height: 100%;
-        }
-        .ai-feature-item {
-            display: flex;
-            align-items: flex-start;
-            padding: 6px 0;
-            font-size: 0.9rem;
-        }
-        .ai-feature-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-            margin-top: 2px;
-            flex-shrink: 0;
         }
     </style>
 </head>
@@ -74,7 +61,7 @@
         <!-- Main header for the diagram -->
         <header class="text-center mb-10 w-full">
             <h1 class="text-4xl font-bold text-slate-800 tracking-tight">VIRA System Architecture</h1>
-            <p class="mt-2 text-lg text-slate-600">An AI-Enhanced, Offline-First Emergency Response Ecosystem</p>
+            <p class="mt-2 text-lg text-slate-600">An Offline-First Emergency Response Ecosystem</p>
         </header>
 
         <!-- Core System Section -->
@@ -103,14 +90,14 @@
         </div>
 
         <!-- Horizontal Scenarios Section -->
-        <div class="flex flex-row items-stretch justify-center gap-4">
+        <div class="flex flex-row items-stretch justify-start gap-4">
             
-            <!-- Step 1 Card -->
-            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+            <!-- Scenario 1 Card -->
+            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col scenario-card">
                 <h3 class="text-lg font-bold text-center text-emerald-700 mb-6">Scenario 1: Nearby</h3>
                 <div class="flex flex-col items-center space-y-3 flex-grow">
                      <div class="icon-box bg-indigo-100"><img src="https://api.iconify.design/material-symbols/watch-outline.svg?color=%234f46e5" alt="Wearable Icon"></div>
-                     <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
+                     <div class="text-center my-1"><span class="lora-text">Band</span><p class="arrow">↓</p></div>
                      <div class="icon-box bg-blue-100 composite-icon-box p-2">
                         <img src="https://api.iconify.design/mdi/chip.svg?color=%232563eb" class="w-8 h-8" alt="ESP32 Icon">
                         <span class="text-2xl text-blue-400">+</span>
@@ -130,13 +117,13 @@
             
             <div class="text-4xl text-slate-300 font-light flex items-center justify-center mx-4">→</div>
 
-            <!-- Step 2 Card -->
-             <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+            <!-- Scenario 2 Card -->
+             <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col scenario-card">
                 <h3 class="text-lg font-bold text-center text-sky-700 mb-6">Scenario 2: Far Away</h3>
                 <div class="flex flex-col items-center space-y-3 flex-grow">
                      <div class="icon-box bg-indigo-100"><img src="https://api.iconify.design/material-symbols/watch-outline.svg?color=%234f46e5" alt="Wearable Icon"></div>
-                     <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
-                     <div class="icon-box bg-emerald-100"><img src="https://api.iconify.design/mdi/signal-variant.svg?color=%23059669" alt="Relay Node Icon"></div>
+                     <div class="text-center my-1"><span class="lora-text">Band</span><p class="arrow">↓</p></div>
+                     <div class="icon-box bg-emerald-100"><img src="https://api.iconify.design/mdi/access-point.svg?color=%23059669" alt="Relay Node Icon"></div>
                      <p class="text-sm font-semibold text-center text-slate-700 mt-1">Relay Node Forwards</p>
                      <div class="text-center my-1"><span class="lora-text">LoRa</span><p class="arrow">↓</p></div>
                      <div class="icon-box bg-blue-100 composite-icon-box p-2">
@@ -144,15 +131,22 @@
                         <span class="text-2xl text-blue-400">+</span>
                         <img src="https://api.iconify.design/mdi/radio-tower.svg?color=%232563eb" class="w-8 h-8" alt="LoRa Icon">
                     </div>
-                     <p class="text-sm font-semibold text-center text-slate-700 mt-1">Base Station Receives</p>
-                     <p class="text-sm font-semibold text-center text-slate-500 italic mt-auto pt-4">Subsequent flow follows Scenario 1 or 3</p>
+                     <p class="text-sm font-semibold text-center text-slate-700 mt-1">Base Station Receives & ACKs</p>
+                     <div class="w-full my-4 flow-line"></div>
+                     <p class="arrow">↓</p>
+                     <div class="flex items-center justify-center space-x-4">
+                        <img src="https://api.iconify.design/logos/firebase.svg" alt="Firebase Logo" class="h-10">
+                        <div class="text-2xl text-slate-300">→</div>
+                        <img src="https://api.iconify.design/logos/flutter.svg" alt="Flutter Logo" class="h-10">
+                    </div>
+                    <p class="text-sm font-semibold text-center text-slate-700 mt-2">Syncs to Cloud & App</p>
                 </div>
             </div>
 
             <div class="text-4xl text-slate-300 font-light flex items-center justify-center mx-4">→</div>
 
-            <!-- Step 3 Card -->
-            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col step-card">
+            <!-- Scenario 3 Card -->
+            <div class="bg-slate-50/50 p-6 rounded-xl border border-slate-200 flex flex-col scenario-card">
                 <h3 class="text-lg font-bold text-center text-orange-700 mb-6">Scenario 3: No Connectivity</h3>
                 <div class="flex flex-col items-center space-y-3 flex-grow">
                     <div class="icon-box bg-blue-100 composite-icon-box p-2">
